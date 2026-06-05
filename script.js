@@ -407,6 +407,259 @@ function renderConj(){
 verbSel.addEventListener('change',renderConj);
 subjSel.addEventListener('change',renderConj);
 
+/* ============ CEFR LEVELS ============ */
+const CEFR = [
+  {
+    code:"A1", name:"Principiante", color:"#3d9e5f",
+    desc:"Puedes comprender y usar expresiones cotidianas y frases muy básicas. Puedes presentarte a ti mismo y presentar a otras personas.",
+    grammar:[
+      "Verbo to be (am / is / are) en presente",
+      "Pronombres personales sujeto (I, you, he, she…)",
+      "Artículos indefinidos y definidos (a, an, the)",
+      "Presente Simple afirmativo (frases básicas)",
+      "Have / has para expresar posesión",
+      "Adjetivos básicos y su posición en la oración",
+      "Números, fechas y horas",
+      "Preguntas con What, Where, Who, How old",
+      "There is / There are",
+      "Plural regular de sustantivos"
+    ],
+    vocabulary:[
+      "Saludos y despedidas",
+      "La familia y las personas del entorno",
+      "Colores, números y el alfabeto",
+      "Objetos del aula y del hogar",
+      "Comida y bebida básica",
+      "Partes del cuerpo",
+      "Días de la semana, meses y estaciones",
+      "Países y nacionalidades básicas"
+    ],
+    skills:[
+      "Presentarte: nombre, edad y procedencia",
+      "Deletrear tu nombre",
+      "Pedir y dar información personal básica",
+      "Identificar y nombrar objetos cotidianos",
+      "Entender instrucciones simples del aula"
+    ]
+  },
+  {
+    code:"A2", name:"Elemental", color:"#6aaa2a",
+    desc:"Puedes comunicarte en situaciones sencillas y habituales. Describes con frases simples tu entorno inmediato y asuntos de necesidad inmediata.",
+    grammar:[
+      "Presente Simple completo (rutinas, hechos, gustos)",
+      "Presente Continuo (acciones en este momento)",
+      "Pasado Simple regular e irregular básico",
+      "Going to (planes e intenciones futuras)",
+      "Can / Can't (habilidad y permiso)",
+      "Adverbios de frecuencia (always, often, never…)",
+      "Comparativos y superlativos básicos (bigger, the best)",
+      "Preposiciones de tiempo y lugar (at, in, on, next to)",
+      "Pronombres objeto (me, him, her, them…)",
+      "Cuantificadores (some, any, much, many, a lot of)"
+    ],
+    vocabulary:[
+      "Rutinas diarias y actividades habituales",
+      "Ropa, moda y descripción personal",
+      "Transporte y viajes básicos",
+      "Profesiones y lugares de trabajo",
+      "Tiempo libre y deportes",
+      "El cuerpo y la salud básica",
+      "La ciudad: lugares y servicios",
+      "Describir la casa y la habitación"
+    ],
+    skills:[
+      "Describir tu rutina diaria",
+      "Hablar de tu familia y tu entorno",
+      "Pedir y dar direcciones sencillas",
+      "Comprar en tiendas y pedir en restaurantes",
+      "Hablar de planes próximos e intenciones"
+    ]
+  },
+  {
+    code:"B1", name:"Intermedio", color:"#1976d2",
+    desc:"Puedes desenvolverte en la mayoría de situaciones cotidianas. Produces textos sencillos y coherentes sobre temas conocidos y describes experiencias y deseos.",
+    grammar:[
+      "Presente Perfecto (experiencias, noticias recientes, since / for)",
+      "Used to (hábitos y estados pasados que ya no existen)",
+      "Will y Going to (predicciones, planes, decisiones)",
+      "Modales: should, must, might, could, need to",
+      "Condicional 0 y 1 (situaciones reales y posibles)",
+      "Oraciones relativas (who, which, that, where)",
+      "Voz pasiva básica (is made / was built)",
+      "Verbos + gerundio o infinitivo (enjoy doing / want to do)",
+      "Reported speech básico (said, told, asked)",
+      "Conectores avanzados (however, although, in spite of)"
+    ],
+    vocabulary:[
+      "El mundo laboral y las profesiones",
+      "Los medios de comunicación y la prensa",
+      "Medio ambiente y naturaleza",
+      "Viajes, turismo y transporte",
+      "Tecnología cotidiana",
+      "Salud y estilos de vida",
+      "Noticias y eventos del mundo actual",
+      "Emociones, sentimientos y relaciones"
+    ],
+    skills:[
+      "Narrar experiencias pasadas con detalle",
+      "Expresar y justificar opiniones propias",
+      "Comprender textos escritos cotidianos",
+      "Participar en conversaciones conocidas con fluidez básica",
+      "Escribir emails, cartas y textos sencillos"
+    ]
+  },
+  {
+    code:"B2", name:"Intermedio Alto", color:"#1a4d9e",
+    desc:"Puedes interactuar con fluidez y espontaneidad con hablantes nativos. Produces textos claros y detallados sobre una amplia variedad de temas, explicando ventajas e inconvenientes.",
+    grammar:[
+      "Presente Perfecto Continuo (duración hasta el presente)",
+      "Pasado Perfecto Simple y Continuo",
+      "Condicional 2 y 3 (hipotético y contrafactual)",
+      "Voz pasiva avanzada y causativa (have/get something done)",
+      "Reported speech completo (todos los tiempos)",
+      "Modales de deducción (must/can't/might + have done)",
+      "Oraciones de relativo especificativas y explicativas",
+      "Inversión enfática (Never have I seen… / Rarely does she…)",
+      "Phrasal verbs y verbos con preposición de uso frecuente",
+      "Marcadores del discurso avanzados (nevertheless, whereas…)"
+    ],
+    vocabulary:[
+      "Problemas sociales y debate de ideas",
+      "Tecnología e innovación digital",
+      "Arte, literatura y cultura contemporánea",
+      "Economía y negocios básicos",
+      "Política y ciudadanía",
+      "Idioms y expresiones idiomáticas frecuentes",
+      "Colocaciones léxicas comunes (make a decision, take a risk)",
+      "Vocabulario académico básico (Academic Word List)"
+    ],
+    skills:[
+      "Debatir y argumentar con matiz y precisión",
+      "Comprender documentales, conferencias y entrevistas",
+      "Escribir ensayos argumentativos y correos formales",
+      "Entender el humor, la ironía y la implicatura",
+      "Adaptar el registro según el contexto (formal / informal)"
+    ]
+  },
+  {
+    code:"C1", name:"Avanzado", color:"#7b1fa2",
+    desc:"Puedes expresarte con fluidez, espontaneidad y precisión sobre temas complejos. Usas el idioma de forma flexible para fines sociales, académicos y profesionales.",
+    grammar:[
+      "Condicionales mixtos y todas sus variantes",
+      "Cláusulas hendidas — cleft sentences (It was… that / What… is)",
+      "Subjuntivo formal (I suggest that he be…)",
+      "Voz pasiva con todos los tiempos y modales",
+      "Inversión enfática avanzada (Had I known… / Were it not for…)",
+      "Elipsis y sustitución gramatical",
+      "Construcciones nominales y gerundivas avanzadas",
+      "Verbos modales perfectos (should/could/would have done)",
+      "Marcadores del discurso sofisticados (notwithstanding, thereby…)",
+      "Reported speech: todas las estructuras y verbos de reporte"
+    ],
+    vocabulary:[
+      "Vocabulario académico completo (AWL + OALD avanzado)",
+      "Colocaciones y expresiones fijas avanzadas",
+      "Idioms y frases hechas en contexto natural",
+      "Lenguaje figurado, metáforas y recursos retóricos",
+      "Vocabulario de especialidad (legal, médico, científico…)",
+      "Registros lingüísticos y variación estilística",
+      "Connotaciones y matices semánticos",
+      "Neologismos y vocabulario contemporáneo"
+    ],
+    skills:[
+      "Comunicarte con precisión y riqueza léxica",
+      "Comprender textos académicos, literarios y técnicos",
+      "Redactar con argumentación sofisticada y estructura clara",
+      "Entender acentos y variedades regionales del inglés",
+      "Participar en reuniones, debates y negociaciones profesionales"
+    ]
+  },
+  {
+    code:"C2", name:"Maestría", color:"#37474f",
+    desc:"Dominas el idioma con la fluidez y precisión de un hablante nativo culto. Puedes integrar y reconstruir información de múltiples fuentes con total coherencia y naturalidad.",
+    grammar:[
+      "Dominio pleno y automático de toda la gramática",
+      "Uso natural sin esfuerzo consciente de ninguna regla",
+      "Creatividad lingüística: juego de palabras y ambigüedad",
+      "Comprensión de dialectos, sociolectos y registro histórico",
+      "Pragmática avanzada: implicatura y actos de habla implícitos",
+      "Variación diacrónica (arcaísmos, Early Modern English)",
+      "Corrección automática y autoevaluación metalingüística",
+      "Dominio de todos los géneros textuales y registros"
+    ],
+    vocabulary:[
+      "Vocabulario nativo activo en todas las áreas temáticas",
+      "Argot, coloquialismos y jerga nativa en contexto",
+      "Textos literarios y poéticos de cualquier registro",
+      "Lenguaje especializado en múltiples dominios técnicos",
+      "Humor, sarcasmo, ironía y subtexto cultural",
+      "Fraseología avanzada, proverbios y expresiones fijas raras",
+      "Etimología e historia de las palabras",
+      "Vocabulario de nicho y tecnicismos de alta especialización"
+    ],
+    skills:[
+      "Comunicarte de forma indistinguible a un hablante nativo",
+      "Comprender cualquier texto escrito u oral sin dificultad",
+      "Crear textos de alta complejidad técnica o literaria",
+      "Mediar e interpretar entre registros y culturas",
+      "Enseñar y evaluar el idioma a nivel profesional"
+    ]
+  }
+];
+
+function renderCEFR() {
+  const tabsEl = document.getElementById('cefrTabs');
+  const panelEl = document.getElementById('cefrPanel');
+  let active = 0;
+
+  function buildTabs() {
+    tabsEl.innerHTML = CEFR.map((lvl, i) => {
+      const isActive = i === active;
+      return `<button class="cefr-tab${isActive?' active':''}" data-i="${i}"
+        style="border-color:${lvl.color};color:${isActive?'#fff':lvl.color};background:${isActive?lvl.color:'#fff'}">
+        <span class="tab-code">${lvl.code}</span>
+        <span class="tab-name">${lvl.name}</span>
+      </button>`;
+    }).join('');
+    tabsEl.querySelectorAll('.cefr-tab').forEach(btn => {
+      btn.addEventListener('click', () => { active = +btn.dataset.i; buildTabs(); buildPanel(); });
+    });
+  }
+
+  function buildPanel() {
+    const lvl = CEFR[active];
+    const li = arr => arr.map(x => `<li>${x}</li>`).join('');
+    panelEl.innerHTML = `
+      <div class="cefr-panel-wrap">
+        <div class="cefr-panel-head">
+          <div class="cefr-badge" style="background:${lvl.color}">${lvl.code}</div>
+          <div class="cefr-head-text">
+            <h3>${lvl.code} — ${lvl.name}</h3>
+            <p>${lvl.desc}</p>
+          </div>
+        </div>
+        <div class="cefr-body">
+          <div class="cefr-col">
+            <div class="cefr-col-title">Gramática</div>
+            <ul class="cefr-list">${li(lvl.grammar)}</ul>
+          </div>
+          <div class="cefr-col">
+            <div class="cefr-col-title">Vocabulario</div>
+            <ul class="cefr-list">${li(lvl.vocabulary)}</ul>
+          </div>
+          <div class="cefr-col">
+            <div class="cefr-col-title">Destrezas comunicativas</div>
+            <ul class="cefr-list">${li(lvl.skills)}</ul>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  buildTabs();
+  buildPanel();
+}
+
 /* ============ INIT ============ */
 render(TENSES);
 renderConj();
+renderCEFR();

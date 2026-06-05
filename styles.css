@@ -224,6 +224,80 @@
   footer b{color:var(--ink);font-family:'Fraunces',serif}
   .no-results{text-align:center;padding:50px;color:var(--ink-soft);font-style:italic;display:none}
 
+  /* ---------- CEFR LEVELS ---------- */
+  .cefr-section{margin-top:60px}
+  .cefr-intro{
+    color:var(--ink-soft);font-size:.98rem;max-width:72ch;
+    margin:12px 0 28px;line-height:1.75;
+  }
+  .cefr-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+  .cefr-tab{
+    font-family:'JetBrains Mono',monospace;font-weight:700;
+    border:2px solid;border-radius:30px;padding:8px 20px;
+    cursor:pointer;transition:.18s;display:flex;flex-direction:column;
+    align-items:center;gap:1px;min-width:84px;
+  }
+  .cefr-tab:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .cefr-tab .tab-code{font-size:1.05rem;line-height:1.1}
+  .cefr-tab .tab-name{
+    font-family:'Hanken Grotesk',sans-serif;font-size:.58rem;
+    font-weight:600;letter-spacing:.07em;text-transform:uppercase;opacity:.8;
+  }
+  .cefr-panel-wrap{
+    background:#fffdf8;border:1.5px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);overflow:hidden;animation:fade .3s ease;
+  }
+  .cefr-panel-head{
+    display:flex;align-items:center;gap:20px;
+    padding:24px 28px;border-bottom:1.5px dashed var(--line);
+  }
+  .cefr-badge{
+    font-family:'Fraunces',serif;font-weight:900;font-size:1.9rem;
+    width:62px;height:62px;flex:0 0 62px;border-radius:14px;
+    display:grid;place-items:center;color:#fff;letter-spacing:-.02em;
+  }
+  .cefr-head-text h3{
+    font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;line-height:1.1;
+  }
+  .cefr-head-text p{
+    color:var(--ink-soft);font-size:.94rem;margin-top:6px;max-width:62ch;line-height:1.65;
+  }
+  .cefr-body{
+    display:grid;grid-template-columns:repeat(3,1fr);
+  }
+  .cefr-col{
+    padding:22px 24px;border-right:1.5px dashed var(--line);
+  }
+  .cefr-col:last-child{border-right:none}
+  .cefr-col-title{
+    font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+    font-weight:700;margin-bottom:14px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .cefr-col-title::before{
+    content:'';display:inline-block;width:8px;height:8px;border-radius:50%;flex:0 0 8px;
+  }
+  .cefr-col:nth-child(1) .cefr-col-title{color:var(--teal-deep)}
+  .cefr-col:nth-child(1) .cefr-col-title::before{background:var(--teal)}
+  .cefr-col:nth-child(2) .cefr-col-title{color:var(--terra-deep)}
+  .cefr-col:nth-child(2) .cefr-col-title::before{background:var(--terra)}
+  .cefr-col:nth-child(3) .cefr-col-title{color:var(--blue)}
+  .cefr-col:nth-child(3) .cefr-col-title::before{background:var(--blue)}
+  .cefr-list{list-style:none;display:grid;gap:8px}
+  .cefr-list li{
+    font-size:.9rem;padding-left:16px;position:relative;line-height:1.5;
+  }
+  .cefr-list li::before{
+    content:"·";position:absolute;left:4px;font-weight:900;color:var(--line);
+  }
+  @media(max-width:700px){
+    .cefr-body{grid-template-columns:1fr}
+    .cefr-col{border-right:none;border-bottom:1.5px dashed var(--line)}
+    .cefr-col:last-child{border-bottom:none}
+    .cefr-panel-head{padding:18px 20px;gap:14px}
+    .cefr-badge{width:50px;height:50px;font-size:1.4rem;flex:0 0 50px}
+  }
+
   @media(max-width:560px){
     .frow{grid-template-columns:1fr}
     .frow .lab{justify-content:flex-start}
