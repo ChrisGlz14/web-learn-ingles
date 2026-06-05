@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Tiempos Verbales en Inglés</title>
+<meta name="description" content="Guía completa e interactiva de los 12 tiempos verbales del inglés: usos, fórmulas, ejemplos y palabras clave, con conjugador de verbos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="deco-grid"></div>
+  <div class="wrap">
+    <span class="eyebrow">English Grammar · Nivel A1–C1</span>
+    <h1 class="title">Los <em>Tiempos<br>Verbales</em> del Inglés</h1>
+    <p class="subtitle">Guía completa e interactiva: los 12 tiempos verbales explicados con sus usos, fórmulas (afirmativa, negativa e interrogativa), ejemplos traducidos y palabras clave. Filtra, busca y conjuga cualquier verbo.</p>
+    <div class="hero-stats">
+      <div class="stat"><b>12</b><span>Tiempos</span></div>
+      <div class="stat"><b>3</b><span>Estructuras c/u</span></div>
+      <div class="stat"><b>∞</b><span>Verbos a conjugar</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="wrap controls-inner">
+    <div class="filters">
+      <button class="chip active" data-f="all">Todos</button>
+      <button class="chip" data-f="present">Presente</button>
+      <button class="chip" data-f="past">Pasado</button>
+      <button class="chip" data-f="future">Futuro</button>
+    </div>
+    <div class="search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="q" type="text" placeholder="Buscar tiempo, uso, palabra…">
+    </div>
+  </div>
+</div>
+
+<main class="wrap" id="app"></main>
+<div class="no-results" id="noRes">Sin resultados. Prueba con otra palabra.</div>
+
+<section class="wrap lab-section">
+  <div class="group-label">
+    <h2>Conjugador interactivo</h2><div class="ln"></div>
+  </div>
+  <div class="conj">
+    <h3>Conjuga un verbo en los 12 tiempos</h3>
+    <p class="sub">Elige un verbo y un sujeto: verás la oración afirmativa formada automáticamente en cada tiempo.</p>
+    <div class="conj-controls">
+      <div class="field">
+        <label for="verbSel">Verbo</label>
+        <select id="verbSel"></select>
+      </div>
+      <div class="field">
+        <label for="subjSel">Sujeto</label>
+        <select id="subjSel"></select>
+      </div>
+    </div>
+    <div class="conj-grid" id="conjGrid"></div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p><b>Guía de Tiempos Verbales en Inglés</b> — material de estudio interactivo.</p>
+  <p style="margin-top:6px">Consejo del profesor: no memorices fórmulas sueltas. Aprende el <b>uso</b> primero, luego la estructura, y practica formando tus propias frases en voz alta. 🎯</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
